@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WydatkiMVC.Models.Money>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Kwota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Opis)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategoria.Nazwa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kwota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Opis)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategoria)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MoneyId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MoneyId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MoneyId })
+        </td>
+    </tr>
+}
+
+</table>
